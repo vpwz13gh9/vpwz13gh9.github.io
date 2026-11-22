@@ -1,0 +1,1357 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>松鼠症仓库 - 收藏整理与影像记录 - 留住每一份珍藏</title>
+<meta name="description" content="松鼠症仓库官方网站，专注收藏整理与影像记录的视频社区，为创作者与企业搭建高品质内容生态。">
+<style>
+:root{
+  --ink:#1c2126;
+  --ink-2:#3b4550;
+  --muted:#6b7684;
+  --line:#e2e6ea;
+  --bg:#f6f4ef;
+  --card:#ffffff;
+  --accent:#2f7d63;
+  --accent-2:#e8a33d;
+  --deep:#14211d;
+  --shadow:0 10px 30px rgba(20,33,29,.09);
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:132px}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{margin:0;line-height:1.3;font-weight:700}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+
+/* ---------- 吸顶容器 ---------- */
+.sticky-shell{position:sticky;top:0;z-index:60}
+.notice-bar{
+  background:linear-gradient(90deg,#14211d,#274d40 55%,#2f7d63);
+  color:#eaf3ee;
+  font-size:13.5px;
+  letter-spacing:.2px;
+}
+.notice-bar .wrap{
+  display:flex;align-items:center;gap:14px;
+  padding:9px 0;
+}
+.notice-tag{
+  flex:none;background:var(--accent-2);color:#241a05;font-weight:700;
+  padding:1px 9px;border-radius:999px;font-size:11.5px;letter-spacing:1px;
+}
+.notice-list{overflow:hidden;white-space:nowrap;position:relative;flex:1}
+.notice-track{display:inline-block;padding-left:100%;animation:marquee 34s linear infinite}
+.notice-track span{padding-right:56px}
+.notice-track b{color:#ffd79a;font-weight:600}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.notice-track{animation:none;padding-left:0}}
+
+header.site{
+  background:rgba(246,244,239,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;gap:26px;padding:13px 0}
+.logo{display:flex;align-items:center;gap:11px;flex:none}
+.logo-mark{
+  width:40px;height:40px;border-radius:12px;
+  background:linear-gradient(140deg,#2f7d63,#14211d);
+  display:grid;place-items:center;color:#f6e6c4;font-weight:800;font-size:19px;
+  box-shadow:0 6px 14px rgba(47,125,99,.3);
+}
+.logo-txt strong{display:block;font-size:17px;letter-spacing:.5px}
+.logo-txt small{display:block;font-size:11px;color:var(--muted);letter-spacing:2px}
+nav.main{display:flex;gap:4px;margin-left:8px;flex-wrap:wrap}
+nav.main a{
+  padding:7px 12px;border-radius:9px;font-size:14.5px;color:var(--ink-2);
+  transition:.2s;
+}
+nav.main a:hover{background:#e9eee9;color:var(--accent)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.search-box{display:flex;align-items:center;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 6px 5px 14px;min-width:210px}
+.search-box input{border:none;outline:none;font-size:13.5px;width:100%;background:transparent;color:var(--ink)}
+.search-box button{background:var(--accent);color:#fff;border-radius:999px;padding:5px 13px;font-size:13px}
+.search-hint{position:relative}
+.hint-pop{
+  display:none;position:absolute;top:44px;right:0;width:300px;background:#fff;
+  border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:10px;font-size:13px;color:var(--ink-2);z-index:70;
+}
+.hint-pop.on{display:block}
+.hint-pop li{padding:6px 8px;border-radius:8px}
+.hint-pop li:hover{background:#f1f5f2}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:10px 20px;border-radius:999px;font-size:14.5px;font-weight:600;transition:.2s;border:1px solid transparent;
+}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 18px rgba(47,125,99,.25)}
+.btn-primary:hover{background:#256a53;transform:translateY(-1px)}
+.btn-ghost{border-color:#c9d4cd;color:var(--ink)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-amber{background:var(--accent-2);color:#2b1e03}
+.btn-amber:hover{background:#d8922c}
+.burger{display:none;flex-direction:column;gap:5px;padding:8px}
+.burger span{width:22px;height:2px;background:var(--ink);border-radius:2px}
+
+/* ---------- HERO ---------- */
+.hero{padding:58px 0 40px;position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;right:-160px;top:-120px;width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,rgba(47,125,99,.16),transparent 68%);
+}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:52px;align-items:center;position:relative}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:1.6px;
+  color:var(--accent);background:#e6f0eb;padding:5px 13px;border-radius:999px;font-weight:600;
+}
+h1{font-size:clamp(30px,4.1vw,46px);margin:18px 0 14px;letter-spacing:-.5px}
+h1 em{font-style:normal;color:var(--accent);position:relative}
+h1 em::after{content:"";position:absolute;left:0;bottom:4px;width:100%;height:9px;background:rgba(232,163,61,.36);z-index:-1}
+.hero-lead{color:var(--ink-2);font-size:15.5px;max-width:540px}
+.hero-lead + .hero-lead{margin-top:12px}
+.hero-actions{display:flex;gap:12px;margin:26px 0 30px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;border-top:1px dashed #cfd8d1;padding-top:22px}
+.stat b{display:block;font-size:26px;color:var(--deep);letter-spacing:-1px}
+.stat span{font-size:12.5px;color:var(--muted)}
+
+.hero-visual{position:relative}
+.hero-cover{
+  border-radius:22px;overflow:hidden;box-shadow:0 24px 50px rgba(20,33,29,.2);
+  aspect-ratio:16/11;position:relative;background:#14211d;
+}
+.hero-cover img{width:100%;height:100%;object-fit:cover}
+.hero-cover .play-badge{
+  position:absolute;inset:auto auto 18px 18px;display:flex;align-items:center;gap:10px;
+  background:rgba(10,20,17,.7);backdrop-filter:blur(6px);color:#fff;padding:8px 16px 8px 8px;border-radius:999px;font-size:13px;
+}
+.play-dot{width:30px;height:30px;border-radius:50%;background:var(--accent-2);display:grid;place-items:center;color:#241a05;font-size:12px}
+.hero-float{
+  position:absolute;left:-26px;bottom:-24px;background:#fff;border-radius:14px;padding:13px 17px;
+  box-shadow:var(--shadow);display:flex;gap:11px;align-items:center;font-size:13px;
+}
+.hero-float .mini{width:38px;height:38px;border-radius:10px;background:#f3e6cd;display:grid;place-items:center;font-size:18px}
+.hero-float b{display:block;font-size:13.5px}
+.hero-float span{color:var(--muted);font-size:11.5px}
+
+/* ---------- 通用 section ---------- */
+section.block{padding:56px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:30px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(23px,2.6vw,30px);letter-spacing:-.4px}
+.sec-head h2 small{display:block;font-size:12.5px;color:var(--accent);letter-spacing:3px;font-weight:600;margin-bottom:6px}
+.sec-head p{color:var(--muted);font-size:14px;max-width:440px}
+.sec-link{font-size:14px;color:var(--accent);font-weight:600;white-space:nowrap}
+.sec-link:hover{text-decoration:underline}
+
+/* 焦点内容 */
+.focus-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:22px}
+.focus-main{
+  position:relative;border-radius:var(--radius);overflow:hidden;background:#14211d;color:#fff;
+  aspect-ratio:16/9.6;display:flex;flex-direction:column;justify-content:flex-end;
+}
+.focus-main img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
+.focus-main .veil{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(8,16,13,.86))}
+.focus-main .txt{position:relative;padding:26px}
+.tagrow{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+.tag{font-size:11.5px;background:rgba(232,163,61,.9);color:#241a05;padding:2px 9px;border-radius:5px;font-weight:600}
+.tag.line{background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff}
+.focus-main h3{font-size:21px;margin-bottom:7px}
+.focus-main p{font-size:13.5px;color:#c9d6cf;max-width:520px}
+.focus-side{display:grid;grid-template-rows:1fr 1fr;gap:22px}
+.mini-card{
+  display:grid;grid-template-columns:150px 1fr;gap:15px;background:#fff;border-radius:14px;overflow:hidden;
+  border:1px solid var(--line);transition:.25s;
+}
+.mini-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#cfe0d6}
+.mini-card .thumb{position:relative;background:#eef1ec;overflow:hidden}
+.mini-card .thumb img{width:100%;height:100%;object-fit:cover}
+.mini-card .body{padding:15px 16px 15px 0;display:flex;flex-direction:column;justify-content:center}
+.mini-card h4{font-size:15px;margin-bottom:5px}
+.mini-card .meta{font-size:12px;color:var(--muted)}
+
+/* 视频流 */
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.chip{
+  padding:7px 16px;border-radius:999px;font-size:13.5px;border:1px solid #d5ddd7;color:var(--ink-2);background:#fff;transition:.2s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip.active{background:var(--deep);color:#f2e9d8;border-color:var(--deep)}
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.vcard{
+  background:var(--card);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);
+  display:flex;flex-direction:column;transition:.25s;
+}
+.vcard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.vcard .cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:#e8ebe6}
+.vcard .cover img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.vcard:hover .cover img{transform:scale(1.05)}
+.cover .pill{position:absolute;top:10px;left:10px;background:rgba(10,20,17,.7);color:#fff;font-size:11px;padding:2px 9px;border-radius:5px}
+.cover .tri{
+  position:absolute;right:10px;bottom:10px;width:34px;height:34px;border-radius:50%;
+  background:rgba(255,255,255,.9);display:grid;place-items:center;color:var(--deep);font-size:12px;
+}
+.vcard .body{padding:16px 17px 18px;display:flex;flex-direction:column;flex:1;gap:8px}
+.vcard h3{font-size:16px;line-height:1.45}
+.vcard .desc{font-size:13px;color:var(--muted);flex:1}
+.vcard .author{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-2)}
+.avatar{
+  width:26px;height:26px;border-radius:50%;flex:none;display:grid;place-items:center;
+  font-size:12px;font-weight:700;color:#fff;
+}
+.vcard .foot{display:flex;align-items:center;justify-content:space-between;border-top:1px dashed var(--line);padding-top:11px;font-size:12.5px;color:var(--muted)}
+.acts{display:flex;gap:12px}
+.act{display:inline-flex;align-items:center;gap:4px;transition:.2s;color:var(--muted)}
+.act:hover{color:var(--accent)}
+.act.liked{color:#d9534f}
+.act.saved{color:var(--accent-2)}
+
+/* 专题 */
+.topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.topic{
+  border-radius:var(--radius);overflow:hidden;position:relative;color:#fff;min-height:250px;
+  display:flex;flex-direction:column;justify-content:flex-end;padding:22px;background:#1b2a24;
+}
+.topic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85;transition:.5s}
+.topic:hover img{transform:scale(1.05)}
+.topic .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,17,.05),rgba(10,20,17,.85))}
+.topic .inner{position:relative}
+.topic h3{font-size:18px;margin-bottom:7px}
+.topic p{font-size:13px;color:#cdd8d2;margin-bottom:12px}
+.status{font-size:11.5px;border:1px solid rgba(255,255,255,.45);padding:2px 10px;border-radius:999px}
+.status.done{background:var(--accent-2);color:#241a05;border-color:transparent;font-weight:600}
+
+/* 创作者 */
+.creator-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.creator{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 20px;text-align:center;
+  transition:.25s;
+}
+.creator:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#cfe0d6}
+.creator .ava{
+  width:66px;height:66px;border-radius:22px;margin:0 auto 13px;display:grid;place-items:center;
+  font-size:24px;font-weight:800;color:#fff;letter-spacing:-1px;
+}
+.creator h4{font-size:16px;margin-bottom:3px}
+.creator .field{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.6px;margin-bottom:10px}
+.creator p{font-size:12.8px;color:var(--muted);min-height:58px}
+.creator .nums{display:flex;justify-content:center;gap:18px;border-top:1px dashed var(--line);margin-top:11px;padding-top:11px;font-size:12px;color:var(--ink-2)}
+.creator .nums b{color:var(--deep)}
+
+/* 影像墙 */
+.wall{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:132px;gap:14px}
+.wall figure{
+  margin:0;position:relative;overflow:hidden;border-radius:13px;background:#e8ebe6;
+}
+.wall figure img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.wall figure:hover img{transform:scale(1.06)}
+.wall figcaption{
+  position:absolute;inset:auto 0 0 0;padding:22px 12px 10px;font-size:12px;color:#fff;
+  background:linear-gradient(180deg,transparent,rgba(8,16,13,.82));
+  opacity:0;transform:translateY(6px);transition:.3s;
+}
+.wall figure:hover figcaption{opacity:1;transform:none}
+.wall .w2{grid-column:span 2}
+.wall .h2{grid-row:span 2}
+
+/* 随笔 */
+.essay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.essay{background:#fff;border-radius:var(--radius);padding:24px 22px;border:1px solid var(--line);position:relative}
+.essay::before{content:"“";position:absolute;top:6px;right:18px;font-size:52px;color:#e9eee9;font-family:Georgia,serif}
+.essay h3{font-size:16px;margin-bottom:10px}
+.essay p{font-size:13.5px;color:var(--ink-2)}
+.essay .sign{margin-top:14px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px}
+
+/* 评论 */
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.review{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
+.review .top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.review .top b{font-size:13.5px}
+.review .top span{font-size:11.5px;color:var(--muted)}
+.review p{font-size:13.4px;color:var(--ink-2)}
+.review .stars{margin-top:10px;color:var(--accent-2);font-size:12.5px;letter-spacing:2px}
+
+/* 榜单 */
+.rank{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rank-col{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.rank-col h3{font-size:15.5px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.rank-col h3 i{width:6px;height:16px;background:var(--accent-2);border-radius:3px;display:inline-block}
+.rank li{display:flex;align-items:center;gap:11px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.4px}
+.rank li:last-child{border-bottom:none}
+.rank .no{width:20px;font-weight:800;color:var(--muted);font-size:12.5px}
+.rank li:nth-child(1) .no{color:var(--accent-2)}
+.rank li:nth-child(2) .no{color:#8fa39a}
+.rank .up{margin-left:auto;font-size:11.5px;color:var(--accent)}
+
+/* 动态 */
+.log{background:#14211d;color:#e6ede8;border-radius:20px;padding:38px 36px}
+.log h2{font-size:24px;margin-bottom:6px}
+.log .sub{font-size:13.5px;color:#9fb5a8;margin-bottom:26px}
+.log-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 34px}
+.log-item{display:flex;gap:14px;padding:14px 0;border-top:1px solid rgba(255,255,255,.1)}
+.log-item time{font-size:12px;color:var(--accent-2);white-space:nowrap;font-weight:600;padding-top:2px}
+.log-item b{display:block;font-size:14px;margin-bottom:3px;color:#fff}
+.log-item p{font-size:12.8px;color:#a9bcb0}
+
+/* FAQ */
+.faq{max-width:900px;margin:0 auto}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:12px;padding:0 20px}
+.faq summary{
+  cursor:pointer;padding:16px 0;font-weight:600;font-size:14.8px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"＋";color:var(--accent);font-weight:700;font-size:16px}
+.faq details[open] summary::after{content:"－"}
+.faq details p{padding:0 0 17px;font-size:13.6px;color:var(--ink-2)}
+
+/* 合作 & 联系 */
+.partners{display:flex;flex-wrap:wrap;gap:14px}
+.partner{
+  padding:12px 22px;background:#fff;border:1px solid var(--line);border-radius:11px;font-size:13.5px;color:var(--ink-2);font-weight:600;letter-spacing:.5px;
+}
+.contact-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:26px}
+.contact-panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.contact-panel h3{font-size:18px;margin-bottom:8px}
+.contact-panel p{font-size:13.6px;color:var(--muted);margin-bottom:18px}
+.field-row{display:flex;gap:12px;flex-wrap:wrap}
+.contact-panel input,.contact-panel textarea{
+  width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 13px;font-size:13.5px;font-family:inherit;
+  outline:none;background:#fbfbf9;color:var(--ink);margin-bottom:12px;
+}
+.contact-panel input:focus,.contact-panel textarea:focus{border-color:var(--accent)}
+.contact-side{display:flex;flex-direction:column;gap:16px}
+.side-card{background:#eef4f0;border-radius:14px;padding:22px}
+.side-card h4{font-size:15px;margin-bottom:8px}
+.side-card p{font-size:13px;color:var(--ink-2)}
+.side-card .k{font-size:12px;color:var(--muted);letter-spacing:1px;margin-bottom:2px}
+.side-card .v{font-size:14.5px;font-weight:600;margin-bottom:10px}
+
+/* footer */
+footer{background:#0f1a16;color:#b9c8bf;padding:52px 0 26px;margin-top:20px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:34px;margin-bottom:34px}
+.foot-brand .logo-txt strong{color:#fff}
+.foot-brand p{font-size:13px;margin-top:14px;max-width:320px;color:#93a89c}
+.foot-col h5{color:#fff;font-size:13.5px;margin:0 0 12px;letter-spacing:.6px}
+.foot-col a{display:block;font-size:13px;padding:4px 0;color:#a3b6ab;transition:.2s}
+.foot-col a:hover{color:var(--accent-2)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#7e9389}
+
+/* toast / modal / top */
+#toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);background:#14211d;color:#fff;
+  padding:11px 22px;border-radius:999px;font-size:13.5px;opacity:0;pointer-events:none;transition:.3s;z-index:200;
+  box-shadow:0 10px 26px rgba(0,0,0,.25);
+}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+.modal{
+  position:fixed;inset:0;background:rgba(10,20,17,.55);display:none;align-items:center;justify-content:center;z-index:180;padding:20px;
+}
+.modal.on{display:flex}
+.modal-card{
+  background:#fff;border-radius:18px;width:min(520px,94vw);padding:28px;box-shadow:0 30px 60px rgba(0,0,0,.3);
+  max-height:86vh;overflow:auto;
+}
+.modal-card h3{font-size:19px;margin-bottom:6px}
+.modal-card .m-sub{font-size:13px;color:var(--muted);margin-bottom:18px}
+.modal-card input,.modal-card textarea,.modal-card select{
+  width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 13px;font-size:13.5px;font-family:inherit;
+  margin-bottom:12px;outline:none;background:#fbfbf9;
+}
+.modal-card input:focus,.modal-card textarea:focus{border-color:var(--accent)}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:6px}
+.close-x{position:absolute;top:14px;right:18px;font-size:22px;color:var(--muted)}
+.modal-card{position:relative}
+#toTop{
+  position:fixed;right:24px;bottom:26px;width:46px;height:46px;border-radius:50%;
+  background:var(--deep);color:#f2e9d8;display:grid;place-items:center;font-size:16px;
+  box-shadow:0 10px 24px rgba(0,0,0,.22);opacity:0;pointer-events:none;transition:.3s;z-index:120;
+}
+#toTop.on{opacity:1;pointer-events:auto}
+#toTop:hover{background:var(--accent)}
+
+.hidden-by-filter{display:none !important}
+
+@media (max-width:980px){
+  .hero-grid,.focus-grid,.contact-wrap{grid-template-columns:1fr}
+  .video-grid,.topic-grid,.essay-grid,.review-grid,.rank,.creator-row{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .wall{grid-template-columns:repeat(3,1fr)}
+  .hero-float{left:10px}
+  .log-grid{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .burger{display:flex}
+  nav.main{
+    display:none;position:absolute;left:0;right:0;top:100%;background:#fff;flex-direction:column;
+    padding:12px 20px 18px;border-bottom:1px solid var(--line);box-shadow:var(--shadow);gap:2px;
+  }
+  nav.main.open{display:flex}
+  .nav-inner{position:relative;flex-wrap:wrap}
+  .search-box{min-width:150px;flex:1}
+  .video-grid,.topic-grid,.essay-grid,.review-grid,.rank,.creator-row{grid-template-columns:1fr}
+  .wall{grid-template-columns:repeat(2,1fr);grid-auto-rows:120px}
+  .mini-card{grid-template-columns:118px 1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .notice-bar .wrap{gap:9px}
+  .log{padding:28px 20px}
+  .hero{padding-top:34px}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- ===== 公告条 + 页头 吸顶 ===== -->
+<div class="sticky-shell">
+  <div class="notice-bar">
+    <div class="wrap">
+      <span class="notice-tag">官方发布</span>
+      <div class="notice-list">
+        <div class="notice-track">
+          <span><b>新增</b>「冬储清单」专题上线，收录 48 条整理方法论视频</span>
+          <span><b>更新</b> 影像仓库 2.0 版本：支持批量归档与标签云检索</span>
+          <span><b>报名</b> 第三届「囤得明白」整理挑战赛报名开启，截止 12 月 20 日</span>
+          <span><b>新片</b> 《一柜子的十年》创作者纪录片首映，附导演访谈</span>
+          <span><b>上新</b> 创作者投稿模板库新增 12 套分镜脚本</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="site">
+    <div class="wrap nav-inner">
+      <a class="logo" href="#top" aria-label="松鼠症仓库官网首页">
+        <span class="logo-mark">松</span>
+        <span class="logo-txt">
+          <strong>松鼠症仓库</strong>
+          <small>SONGSHU VAULT</small>
+        </span>
+      </a>
+      <nav class="main" id="mainNav">
+        <a href="#focus">焦点内容</a>
+        <a href="#videos">视频仓库</a>
+        <a href="#topics">专题企划</a>
+        <a href="#creators">创作者</a>
+        <a href="#wall">影像墙</a>
+        <a href="#news">企业动态</a>
+        <a href="#faq">帮助</a>
+        <a href="#contact">联系投稿</a>
+      </nav>
+      <div class="nav-right">
+        <div class="search-hint">
+          <div class="search-box">
+            <input id="searchInput" type="search" placeholder="搜索收藏 / 整理 / 影像…" aria-label="站内搜索">
+            <button id="searchBtn" type="button">搜索</button>
+          </div>
+          <ul class="hint-pop" id="hintPop"></ul>
+        </div>
+        <button class="btn btn-primary" id="uploadBtn" type="button">我要投稿</button>
+        <button class="burger" id="burger" type="button" aria-label="展开导航" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main id="top">
+
+<!-- ===== 首屏 ===== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">官方网站 · 品牌视频门户</span>
+      <h1>松鼠症仓库，把每一次「舍不得删」都整理成<em>有据可查的珍藏</em></h1>
+      <p class="hero-lead">松鼠症仓库是一家持续运营的视频品牌企业与内容社区，深耕收藏整理、影像记录与生活秩序这一垂直领域。我们为囤积爱好者、整理师、影像创作者搭建高品质内容生态，用原创正版高清的影像，把「东西多」讲成一种值得被理解的生活方式。</p>
+      <p class="hero-lead">自 2019 年上线以来，我们坚持用户至上与匠心选题：每一条视频都经过选题会、拍摄、双轮审核与归档入库，形成可检索、可追溯、可长期陪伴的内容资产。官网同时面向企业与机构开放合作，提供品牌故事拍摄、内容生态共建与创作者孵化服务。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#videos">浏览视频仓库</a>
+        <a class="btn btn-ghost" href="#creators">认识创作者</a>
+        <a class="btn btn-ghost" href="#topics">查看专题企划</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b data-count="12680">0</b><span>已归档影像条目</span></div>
+        <div class="stat"><b data-count="386">0</b><span>签约与入驻创作者</span></div>
+        <div class="stat"><b data-count="94">0</b><span>内容满意度（%）</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-cover">
+        <img alt="松鼠症仓库主视觉：木质收纳柜与贴满标签的储物盒在暖光中排列" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 550'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232f7d63'/%3E%3Cstop offset='1' stop-color='%2314211d'/%3E%3C/linearGradient%3E%3ClinearGradient id='g2' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23f2d7a3'/%3E%3Cstop offset='1' stop-color='%23c98f3c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='550' fill='url(%23g1)'/%3E%3Cg opacity='.22' fill='%23ffffff'%3E%3Ccircle cx='120' cy='90' r='60'/%3E%3Ccircle cx='700' cy='120' r='90'/%3E%3Ccircle cx='640' cy='470' r='130'/%3E%3C/g%3E%3Cg%3E%3Crect x='90' y='300' width='620' height='180' rx='12' fill='%23a9712f'/%3E%3Crect x='90' y='300' width='620' height='26' rx='12' fill='%23d19a4e'/%3E%3Crect x='120' y='345' width='170' height='120' rx='8' fill='%23e8c893'/%3E%3Crect x='310' y='345' width='170' height='120' rx='8' fill='%23d9ab68'/%3E%3Crect x='500' y='345' width='180' height='120' rx='8' fill='%23e8c893'/%3E%3Crect x='140' y='365' width='60' height='14' rx='7' fill='%232f7d63'/%3E%3Crect x='330' y='365' width='80' height='14' rx='7' fill='%2314211d'/%3E%3Crect x='525' y='365' width='70' height='14' rx='7' fill='%23c9633f'/%3E%3Crect x='140' y='395' width='120' height='10' rx='5' fill='%23b58a4d' opacity='.7'/%3E%3Crect x='330' y='395' width='100' height='10' rx='5' fill='%23b58a4d' opacity='.7'/%3E%3Crect x='525' y='395' width='130' height='10' rx='5' fill='%23b58a4d' opacity='.7'/%3E%3C/g%3E%3Cg%3E%3Ccircle cx='250' cy='215' r='58' fill='%23f2d7a3'/%3E%3Cpath d='M250 168c-14 0-24 9-24 9s-9-7-19 2 3 22 3 22l40 60 40-60s13-13 3-22-19-2-19-2-10-9-24-9z' fill='%23c98f3c'/%3E%3Ccircle cx='232' cy='212' r='6' fill='%2314211d'/%3E%3Ccircle cx='268' cy='212' r='6' fill='%2314211d'/%3E%3Cpath d='M240 232q10 9 20 0' stroke='%2314211d' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/g%3E%3Cg fill='%23f2d7a3' opacity='.85'%3E%3Crect x='560' y='180' width='26' height='96' rx='4'/%3E%3Crect x='596' y='205' width='26' height='71' rx='4'/%3E%3Crect x='632' y='160' width='26' height='116' rx='4'/%3E%3C/g%3E%3Crect x='0' y='480' width='800' height='70' fill='%230e1a16' opacity='.5'/%3E%3C/svg%3E">
+        <div class="play-badge"><span class="play-dot">▶</span>《一柜子的十年》官方预告 · 03:42</div>
+      </div>
+      <div class="hero-float">
+        <span class="mini">📦</span>
+        <span><b>本周新增 216 条</b><span>已完成审核与标签归档</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 焦点内容 ===== -->
+<section class="block" id="focus">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><small>FOCUS / 本期焦点</small>编辑部本周重点推荐</h2>
+      <p>由官方编辑组与资深整理师共同选题，涵盖仓储式收纳、影像归档与创作者幕后，均为原创正版高清内容。</p>
+    </div>
+    <div class="focus-grid">
+      <article class="focus-main">
+        <img alt="焦点视频封面：整面墙的透明储物盒被分类贴上标签" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='f1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23244037'/%3E%3Cstop offset='1' stop-color='%230d1613'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23f1)'/%3E%3Cg%3E%3Crect x='60' y='70' width='680' height='360' rx='10' fill='%231b2e28'/%3E%3Cg fill='%23cfe6da' opacity='.9'%3E%3Crect x='90' y='100' width='120' height='90' rx='6'/%3E%3Crect x='228' y='100' width='120' height='90' rx='6'/%3E%3Crect x='366' y='100' width='120' height='90' rx='6'/%3E%3Crect x='504' y='100' width='120' height='90' rx='6'/%3E%3Crect x='90' y='208' width='120' height='90' rx='6'/%3E%3Crect x='228' y='208' width='120' height='90' rx='6'/%3E%3Crect x='366' y='208' width='120' height='90' rx='6'/%3E%3Crect x='504' y='208' width='120' height='90' rx='6'/%3E%3C/g%3E%3Cg fill='%23e8a33d'%3E%3Crect x='102' y='168' width='58' height='10' rx='5'/%3E%3Crect x='240' y='168' width='46' height='10' rx='5'/%3E%3Crect x='378' y='168' width='66' height='10' rx='5'/%3E%3Crect x='516' y='168' width='40' height='10' rx='5'/%3E%3C/g%3E%3Cg fill='%232f7d63'%3E%3Crect x='102' y='276' width='50' height='10' rx='5'/%3E%3Crect x='240' y='276' width='70' height='10' rx='5'/%3E%3Crect x='378' y='276' width='44' height='10' rx='5'/%3E%3Crect x='516' y='276' width='62' height='10' rx='5'/%3E%3C/g%3E%3Crect x='60' y='380' width='680' height='50' rx='8' fill='%23324a41'/%3E%3C/svg%3E">
+        <span class="veil"></span>
+        <div class="txt">
+          <div class="tagrow"><span class="tag">官方精编</span><span class="tag line">仓储式收纳</span><span class="tag line">21:08</span></div>
+          <h3>一柜子的十年：把 3000 件杂物变成可检索的档案</h3>
+          <p>跟随整理师林澈走进一间 12 平米的储藏室，看标签、分区与编号如何让「囤」变成一种能力。本片为松鼠症仓库年度旗舰企划，历时四个月跟拍。</p>
+        </div>
+      </article>
+      <div class="focus-side">
+        <article class="mini-card">
+          <div class="thumb">
+            <img alt="视频封面：桌面上摊开的旧票据与编号收纳袋" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 260'%3E%3Crect width='400' height='260' fill='%23e7ddd0'/%3E%3Cg%3E%3Crect x='40' y='60' width='150' height='110' rx='4' fill='%23fffdf7' transform='rotate(-6 115 115)'/%3E%3Crect x='70' y='80' width='90' height='8' rx='4' fill='%23b7a58e'/%3E%3Crect x='70' y='98' width='70' height='8' rx='4' fill='%23d3c4ae'/%3E%3Crect x='70' y='116' width='100' height='8' rx='4' fill='%23d3c4ae'/%3E%3Crect x='210' y='80' width='150' height='120' rx='5' fill='%232f7d63'/%3E%3Crect x='228' y='100' width='80' height='8' rx='4' fill='%23cfe6da'/%3E%3Crect x='228' y='118' width='60' height='8' rx='4' fill='%23cfe6da' opacity='.7'/%3E%3Ccircle cx='300' cy='170' r='22' fill='%23e8a33d'/%3E%3C/g%3E%3C/svg%3E">
+          </div>
+          <div class="body">
+            <h4>票据、说明书与旧照片：家庭档案的三层分级法</h4>
+            <div class="meta">实用技巧 · 12:36 · 创作者 折页君</div>
+          </div>
+        </article>
+        <article class="mini-card">
+          <div class="thumb">
+            <img alt="视频封面：夜灯下整理数字收藏夹的手绘界面" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 260'%3E%3Crect width='400' height='260' fill='%231b2a3f'/%3E%3Cg opacity='.4' fill='%23ffffff'%3E%3Ccircle cx='60' cy='50' r='3'/%3E%3Ccircle cx='340' cy='40' r='2'/%3E%3Ccircle cx='300' cy='200' r='2.5'/%3E%3Ccircle cx='100' cy='210' r='2'/%3E%3C/g%3E%3Crect x='70' y='70' width='260' height='140' rx='10' fill='%232b4059'/%3E%3Crect x='86' y='88' width='110' height='10' rx='5' fill='%236fa8c9'/%3E%3Crect x='86' y='110' width='160' height='8' rx='4' fill='%234a6a86'/%3E%3Crect x='86' y='128' width='130' height='8' rx='4' fill='%234a6a86'/%3E%3Cg fill='%23e8a33d'%3E%3Crect x='86' y='156' width='52' height='34' rx='5'/%3E%3Crect x='148' y='156' width='52' height='34' rx='5'/%3E%3Crect x='210' y='156' width='52' height='34' rx='5'/%3E%3C/g%3E%3C/svg%3E">
+          </div>
+          <div class="body">
+            <h4>数字囤积症的自我诊断：收藏夹里 4000 条链接怎么办</h4>
+            <div class="meta">深度测评 · 18:04 · 创作者 十七号抽屉</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 视频仓库 ===== -->
+<section class="block" id="videos" style="background:#f1efe8">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><small>VIDEO VAULT / 视频仓库</small>精品内容持续入库</h2>
+      <p>按题材筛选，查看仓库里最新完成审核的原创影像。点击爱心与收藏可同步到你的个人整理清单。</p>
+    </div>
+    <div class="filter-bar" id="filterBar">
+      <button class="chip active" data-cat="all" type="button">全部</button>
+      <button class="chip" data-cat="收纳" type="button">收纳整理</button>
+      <button class="chip" data-cat="影像" type="button">影像记录</button>
+      <button class="chip" data-cat="人物" type="button">人物访谈</button>
+      <button class="chip" data-cat="科普" type="button">知识科普</button>
+      <button class="chip" data-cat="幕后" type="button">创作幕后</button>
+    </div>
+    <div class="video-grid" id="videoGrid">
+
+      <article class="vcard" data-cat="收纳">
+        <div class="cover">
+          <img alt="视频封面：三层抽屉被透明分隔盒整齐填满" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23efe6d6'/%3E%3Cg%3E%3Crect x='50' y='40' width='380' height='60' rx='6' fill='%23c9a978'/%3E%3Crect x='50' y='110' width='380' height='60' rx='6' fill='%23d8bc90'/%3E%3Crect x='50' y='180' width='380' height='60' rx='6' fill='%23c9a978'/%3E%3Cg fill='%23fffdf7'%3E%3Crect x='66' y='52' width='56' height='36' rx='4'/%3E%3Crect x='132' y='52' width='56' height='36' rx='4'/%3E%3Crect x='198' y='52' width='56' height='36' rx='4'/%3E%3Crect x='264' y='52' width='56' height='36' rx='4'/%3E%3Crect x='330' y='52' width='56' height='36' rx='4'/%3E%3C/g%3E%3Cg fill='%232f7d63' opacity='.75'%3E%3Crect x='66' y='122' width='86' height='36' rx='4'/%3E%3Crect x='162' y='122' width='86' height='36' rx='4'/%3E%3Crect x='258' y='122' width='86' height='36' rx='4'/%3E%3Crect x='354' y='122' width='60' height='36' rx='4'/%3E%3C/g%3E%3Cg fill='%23e8a33d'%3E%3Crect x='66' y='192' width='120' height='36' rx='4'/%3E%3Crect x='196' y='192' width='120' height='36' rx='4'/%3E%3Crect x='326' y='192' width='88' height='36' rx='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
+          <span class="pill">收纳 · 14:22</span>
+          <span class="tri">▶</span>
+        </div>
+        <div class="body">
+          <h3>抽屉的第三层：把小物件分级到「随手可取」</h3>
+          <p class="desc">从动线出发重排抽屉分区，演示 6 种分隔盒的实测效果，附一份可打印的标签清单。</p>
+          <div class="author"><span class="avatar" style="background:#2f7d63">林</span> 林澈 · 整理师</div>
+          <div class="foot">
+            <span>1.8 万次播放</span>
+            <div class="acts">
+              <button class="act like" type="button" aria-label="点赞">♥ <span>236</span></button>
+              <button class="act save" type="button" aria-label="收藏">☆</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="vcard" data-cat="影像">
+        <div class="cover">
+          <img alt="视频封面：黄昏窗边的书架上排列着编号纸盒" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Cdefs%3E%3ClinearGradient id='v2' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23f4b26a'/%3E%3Cstop offset='1' stop-color='%23c86a4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='480' height='270' fill='url(%23v2)'/%3E%3Ccircle cx='360' cy='80' r='46' fill='%23ffe0b0' opacity='.85'/%3E%3Cg fill='%238a4a32' opacity='.9'%3E%3Crect x='40' y='180' width='400' height='14' rx='4'/%3E%3C/g%3E%3Cg%3E%3Crect x='60' y='90' width='46' height='90' rx='3' fill='%23fdf3e2'/%3E%3Crect x='112' y='104' width='46' height='76' rx='3' fill='%23e9d9be'/%3E%3Crect x='164' y='84' width='46' height='96' rx='3' fill='%23fdf3e2'/%3E%3Crect x='216' y='110' width='46' height='70' rx='3' fill='%23e9d9be'/%3E%3Crect x='268' y='96' width='46' height='84' rx='3' fill='%23fdf3e2'/%3E%3C/g%3E%3Cg fill='%238a4a32'%3E%3Crect x='70' y='116' width='26' height='6' rx='3'/%3E%3Crect x='122' y='128' width='26' height='6' rx='3'/%3E%3Crect x='174' y='110' width='26' height='6' rx='3'/%3E%3Crect x='278' y='120' width='26' height='6' rx='3'/%3E%3C/g%3E%3C/svg%3E">
+          <span class="pill">影像 · 09:15</span>
+          <span class="tri">▶</span>
+        </div>
+        <div class="body">
+          <h3>给旧物拍一张档案照：自然光下的静物记录法</h3>
+          <p class="desc">窗边 30 分钟，拍完一整柜旧物。讲清背景、反光与编号卡片的摆放逻辑。</p>
+          <div class="author"><span class="avatar" style="background:#c86a4a">折</span> 折页君 · 影像记录</div>
+          <div class="foot">
+            <span>9236 次播放</span>
+            <div class="acts">
+              <button class="act like" type="button" aria-label="点赞">♥ <span>184</span></button>
+              <button class="act save" type="button" aria-label="收藏">☆</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="vcard" data-cat="人物">
+        <div class="cover">
+          <img alt="视频封面：访谈场景中两人对坐在绿色背景前" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23dfe8e0'/%3E%3Crect x='0' y='0' width='480' height='120' fill='%232f7d63' opacity='.25'/%3E%3Ccircle cx='150' cy='130' r='38' fill='%23e8a33d'/%3E%3Ccircle cx='330' cy='130' r='38' fill='%23244037'/%3E%3Crect x='110' y='168' width='80' height='70' rx='16' fill='%23c98f3c'/%3E%3Crect x='290' y='168' width='80' height='70' rx='16' fill='%231b2e28'/%3E%3Crect x='60' y='238' width='360' height='10' rx='5' fill='%23a9bdae'/%3E%3C/svg%3E">
+          <span class="pill">人物 · 26:40</span>
+          <span class="tri">▶</span>
+        </div>
+        <div class="body">
+          <h3>访谈：一位仓库管理员的二十年收藏哲学</h3>
+          <p class="desc">他说「囤不是病，是记忆的备份」。一场关于物品、时间与舍弃的长谈。</p>
+          <div class="author"><span class="avatar" style="background:#244037">顾</span> 顾南舟 · 访谈主持</div>
+          <div class="foot">
+            <span>2.4 万次播放</span>
+            <div class="acts">
+              <button class="act like" type="button" aria-label="点赞">♥ <span>412</span></button>
+              <button class="act save" type="button" aria-label="收藏">☆</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="vcard" data-cat="科普">
+        <div class="cover">
+          <img alt="视频封面：信息图风格的大脑与收藏夹连接示意" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%2316242c'/%3E%3Cg stroke='%234d7f8f' stroke-width='2' fill='none' opacity='.8'%3E%3Cpath d='M60 135h120M300 135h120M240 60v50M240 160v50'/%3E%3C/g%3E%3Ccircle cx='240' cy='135' r='52' fill='%232f7d63'/%3E%3Cpath d='M218 135q22-30 44 0-22 30-44 0z' fill='%23cfe6da'/%3E%3Cg fill='%23e8a33d'%3E%3Ccircle cx='90' cy='135' r='22'/%3E%3Ccircle cx='390' cy='135' r='22'/%3E%3Ccircle cx='240' cy='60' r='14'/%3E%3Ccircle cx='240' cy='210' r='14'/%3E%3C/g%3E%3C/svg%3E">
+          <span class="pill">科普 · 11:03</span>
+          <span class="tri">▶</span>
+        </div>
+        <div class="body">
+          <h3>为什么我们舍不得删？收藏行为的心理学解释</h3>
+          <p class="desc">从损失厌恶到信息焦虑，用四个实验讲清「数字囤积」背后的心理机制。</p>
+          <div class="author"><span class="avatar" style="background:#4d7f8f">十</span> 十七号抽屉 · 科普</div>
+          <div class="foot">
+            <span>3.1 万次播放</span>
+            <div class="acts">
+              <button class="act like" type="button" aria-label="点赞">♥ <span>587</span></button>
+              <button class="act save" type="button" aria-label="收藏">☆</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="vcard" data-cat="幕后">
+        <div class="cover">
+          <img alt="视频封面：摄影棚内的轨道灯与分镜脚本桌" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23242329'/%3E%3Cg%3E%3Crect x='60' y='40' width='180' height='120' rx='6' fill='%23f2e6c8'/%3E%3Crect x='76' y='58' width='90' height='8' rx='4' fill='%23837a63'/%3E%3Crect x='76' y='76' width='120' height='8' rx='4' fill='%23c9bd9e'/%3E%3Crect x='76' y='94' width='70' height='8' rx='4' fill='%23c9bd9e'/%3E%3Crect x='76' y='118' width='140' height='6' rx='3' fill='%23b6ab8f'/%3E%3C/g%3E%3Cg%3E%3Cline x1='330' y1='30' x2='330' y2='150' stroke='%23555' stroke-width='5'/%3E%3Crect x='296' y='150' width='68' height='44' rx='8' fill='%23e8a33d'/%3E%3Crect x='296' y='194' width='68' height='10' rx='5' fill='%23a9772b'/%3E%3C/g%3E%3Cg fill='%233c3c46'%3E%3Crect x='60' y='200' width='360' height='12' rx='6'/%3E%3Crect x='100' y='212' width='12' height='34' rx='4'/%3E%3Crect x='368' y='212' width='12' height='34' rx='4'/%3E%3C/g%3E%3C/svg%3E">
+          <span class="pill">幕后 · 16:48</span>
+          <span class="tri">▶</span>
+        </div>
+        <div class="body">
+          <h3>拍一间仓库要几天？《一柜子的十年》摄制全记录</h3>
+          <p class="desc">四个月、十七次进组、两台机器。分享我们如何在不打扰生活的前提下完成跟拍。</p>
+          <div class="author"><span class="avatar" style="background:#5a5a68">摄</span> 松鼠症仓库出品</div>
+          <div class="foot">
+            <span>1.2 万次播放</span>
+            <div class="acts">
+              <button class="act like" type="button" aria-label="点赞">♥ <span>298</span></button>
+              <button class="act save" type="button" aria-label="收藏">☆</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="vcard" data-cat="收纳">
+        <div class="cover">
+          <img alt="视频封面：玄关柜内按使用频率排列的收纳筐" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23e3e9e2'/%3E%3Crect x='40' y='30' width='400' height='210' rx='8' fill='%23d2ddd3'/%3E%3Cg fill='%23f7f4ec'%3E%3Crect x='60' y='50' width='110' height='80' rx='6'/%3E%3Crect x='185' y='50' width='110' height='80' rx='6'/%3E%3Crect x='310' y='50' width='110' height='80' rx='6'/%3E%3C/g%3E%3Cg fill='%232f7d63' opacity='.6'%3E%3Crect x='60' y='146' width='110' height='74' rx='6'/%3E%3C/g%3E%3Cg fill='%23c9a978'%3E%3Crect x='185' y='146' width='110' height='74' rx='6'/%3E%3Crect x='310' y='146' width='110' height='74' rx='6'/%3E%3C/g%3E%3Cg fill='%23ffffff' opacity='.85'%3E%3Crect x='76' y='74' width='70' height='8' rx='4'/%3E%3Crect x='201' y='74' width='60' height='8' rx='4'/%3E%3Crect x='326' y='74' width='80' height='8' rx='4'/%3E%3C/g%3E%3C/svg%3E">
+          <span class="pill">收纳 · 08:50</span>
+          <span class="tri">▶</span>
+        </div>
+        <div class="body">
+          <h3>玄关改造：用「出门动线」倒推收纳筐的位置</h3>
+          <p class="desc">钥匙、快递、雨伞各有归处。三种户型对照演示，含成本 300 元内的清单。</p>
+          <div class="author"><span class="avatar" style="background:#c9a978;color:#3a2a08">乔</span> 乔木收纳室 · 整理</div>
+          <div class="foot">
+            <span>8620 次播放</span>
+            <div class="acts">
+              <button class="act like" type="button" aria-label="点赞">♥ <span>156</span></button>
+              <button class="act save" type="button" aria-label="收藏">☆</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 专题企划 ===== -->
+<section class="block" id="topics">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><small>PROGRAMS / 专题企划</small>正在进行的系列企划</h2>
+      <p>每个专题由官方统筹、创作者共创，持续更新并开放投票与报名。所有更新日志在专题页内可查。</p>
+      <a class="sec-link" href="#news">查看更新日志 →</a>
+    </div>
+    <div class="topic-grid">
+      <article class="topic">
+        <img alt="专题封面：堆叠的储物箱在冷光下形成几何阵列" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 420 300'%3E%3Crect width='420' height='300' fill='%23223340'/%3E%3Cg fill='%233c5566'%3E%3Crect x='40' y='60' width='100' height='80' rx='6'/%3E%3Crect x='160' y='60' width='100' height='80' rx='6'/%3E%3Crect x='280' y='60' width='100' height='80' rx='6'/%3E%3Crect x='40' y='160' width='100' height='80' rx='6'/%3E%3Crect x='160' y='160' width='100' height='80' rx='6'/%3E%3Crect x='280' y='160' width='100' height='80' rx='6'/%3E%3C/g%3E%3Cg fill='%23e8a33d' opacity='.9'%3E%3Crect x='56' y='118' width='60' height='8' rx='4'/%3E%3Crect x='176' y='118' width='44' height='8' rx='4'/%3E%3Crect x='296' y='118' width='66' height='8' rx='4'/%3E%3C/g%3E%3Cg fill='%237fa3b8' opacity='.8'%3E%3Crect x='56' y='218' width='50' height='8' rx='4'/%3E%3Crect x='176' y='218' width='70' height='8' rx='4'/%3E%3Crect x='296' y='218' width='40' height='8' rx='4'/%3E%3C/g%3E%3C/svg%3E">
+        <span class="veil"></span>
+        <div class="inner">
+          <h3>冬储清单</h3>
+          <p>四十八集整理方法论，从换季衣物到家庭档案，一次囤得明白。</p>
+          <span class="status done">已完结 · 48 集</span>
+        </div>
+      </article>
+      <article class="topic">
+        <img alt="专题封面：木桌上散落的手写标签与麻绳" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 420 300'%3E%3Crect width='420' height='300' fill='%23b98c56'/%3E%3Cg%3E%3Crect x='50' y='70' width='110' height='70' rx='5' fill='%23f7ecd8' transform='rotate(-7 105 105)'/%3E%3Crect x='180' y='90' width='110' height='70' rx='5' fill='%23fff7e6' transform='rotate(5 235 125)'/%3E%3Crect x='120' y='170' width='110' height='70' rx='5' fill='%23f7ecd8' transform='rotate(-3 175 205)'/%3E%3C/g%3E%3Cg stroke='%23865f33' stroke-width='3' fill='none'%3E%3Cpath d='M70 110q30-20 60 0M200 130q30-20 60 0M140 210q30-20 60 0'/%3E%3C/g%3E%3Ccircle cx='330' cy='210' r='46' stroke='%23e0c9a3' stroke-width='10' fill='none'/%3E%3C/svg%3E">
+        <span class="veil"></span>
+        <div class="inner">
+          <h3>标签的写法</h3>
+          <p>十位整理师、六种笔迹、一份可复制的标签规范，附打印模板下载。</p>
+          <span class="status">更新至第 9 集</span>
+        </div>
+      </article>
+      <article class="topic">
+        <img alt="专题封面：夜间城市中亮着灯的窗口剪影" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 420 300'%3E%3Crect width='420' height='300' fill='%231b2438'/%3E%3Cg fill='%232b3a54'%3E%3Crect x='30' y='120' width='70' height='180'/%3E%3Crect x='110' y='80' width='80' height='220'/%3E%3Crect x='200' y='140' width='70' height='160'/%3E%3Crect x='280' y='100' width='90' height='200'/%3E%3C/g%3E%3Cg fill='%23f2c86b'%3E%3Crect x='124' y='100' width='14' height='14'/%3E%3Crect x='150' y='130' width='14' height='14'/%3E%3Crect x='124' y='160' width='14' height='14'/%3E%3Crect x='296' y='124' width='14' height='14'/%3E%3Crect x='326' y='160' width='14' height='14'/%3E%3Crect x='214' y='170' width='14' height='14'/%3E%3C/g%3E%3Ccircle cx='360' cy='60' r='26' fill='%23e8e0c4' opacity='.85'/%3E%3C/svg%3E">
+        <span class="veil"></span>
+        <div class="inner">
+          <h3>凌晨的收纳师</h3>
+          <p>跟拍六位在夜间工作的整理师，记录他们的工具箱、习惯与职业尊严。</p>
+          <span class="status">更新至第 4 集</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 创作者矩阵 ===== -->
+<section class="block" id="creators" style="background:#f1efe8">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><small>CREATORS / 创作者矩阵</small>仓库里最会整理的人</h2>
+      <p>他们既是我们签约的原创作者，也是社区里长期分享经验的朋友。点击卡片查看完整档案与作品列表。</p>
+    </div>
+    <div class="creator-row">
+      <article class="creator" data-name="林澈" data-field="职业整理师 / 仓储式收纳" data-works="86" data-fans="12.4 万" data-bio="从业九年，服务过 300 多个家庭，擅长用编号系统重建空间秩序。坚持所有方法都要能被普通人复制。">
+        <div class="ava" style="background:linear-gradient(140deg,#2f7d63,#14211d)">林</div>
+        <h4>林澈</h4>
+        <div class="field">职业整理师 / 仓储式收纳</div>
+        <p>主张「先编号，再收纳」，把仓库管理思维带进家庭空间。</p>
+        <div class="nums"><span><b>86</b> 作品</span><span><b>12.4万</b> 关注</span></div>
+      </article>
+      <article class="creator" data-name="折页君" data-field="影像记录 / 静物摄影" data-works="54" data-fans="8.7 万" data-bio="前杂志摄影编辑，专注用最少的器材记录最多细节。相信一张档案照的价值会在十年后显现。">
+        <div class="ava" style="background:linear-gradient(140deg,#c86a4a,#7a3a26)">折</div>
+        <h4>折页君</h4>
+        <div class="field">影像记录 / 静物摄影</div>
+        <p>教普通人用一部手机，为家里的旧物建立影像档案。</p>
+        <div class="nums"><span><b>54</b> 作品</span><span><b>8.7万</b> 关注</span></div>
+      </article>
+      <article class="creator" data-name="十七号抽屉" data-field="知识科普 / 数字囤积" data-works="41" data-fans="15.2 万" data-bio="心理学背景的内容作者，长期研究数字收藏行为。写作与视频两条线并行，擅长把学术概念讲成日常经验。">
+        <div class="ava" style="background:linear-gradient(140deg,#4d7f8f,#1b3040)">十</div>
+        <h4>十七号抽屉</h4>
+        <div class="field">知识科普 / 数字囤积</div>
+        <p>在收藏夹里做田野调查，把「舍不得删」讲成可理解的科学。</p>
+        <div class="nums"><span><b>41</b> 作品</span><span><b>15.2万</b> 关注</span></div>
+      </article>
+      <article class="creator" data-name="乔木收纳室" data-field="家居收纳 / 小户型" data-works="63" data-fans="6.9 万" data-bio="两人小团队，专做 60 平米以下户型的收纳改造。所有方案公开成本表，反对为了好看而增加负担。">
+        <div class="ava" style="background:linear-gradient(140deg,#c9a978,#8a6a34);color:#3a2a08">乔</div>
+        <h4>乔木收纳室</h4>
+        <div class="field">家居收纳 / 小户型</div>
+        <p>小空间改造实战派，每个方案都附一张可算的成本表。</p>
+        <div class="nums"><span><b>63</b> 作品</span><span><b>6.9万</b> 关注</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 影像墙 ===== -->
+<section class="block" id="wall">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><small>GALLERY / 影像墙</small>仓库里被记录下的角落</h2>
+      <p>来自社区创作者的高清影像作品，混合尺寸展示。每一张都标注了拍摄地点与收录时间。</p>
+    </div>
+    <div class="wall">
+      <figure class="w2 h2">
+        <img alt="影像墙大图：整面储物架在晨光中投下整齐的影子" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23efe9dc'/%3E%3Cg%3E%3Crect x='40' y='60' width='520' height='300' rx='6' fill='%23d9cdb4'/%3E%3Cg fill='%23f7f2e7'%3E%3Crect x='60' y='80' width='110' height='80' rx='4'/%3E%3Crect x='185' y='80' width='110' height='80' rx='4'/%3E%3Crect x='310' y='80' width='110' height='80' rx='4'/%3E%3Crect x='435' y='80' width='105' height='80' rx='4'/%3E%3C/g%3E%3Cg fill='%232f7d63' opacity='.7'%3E%3Crect x='60' y='180' width='110' height='80' rx='4'/%3E%3Crect x='310' y='180' width='110' height='80' rx='4'/%3E%3C/g%3E%3Cg fill='%23c9a978'%3E%3Crect x='185' y='180' width='110' height='80' rx='4'/%3E%3Crect x='435' y='180' width='105' height='80' rx='4'/%3E%3C/g%3E%3Cg fill='%23c86a4a'%3E%3Crect x='60' y='280' width='230' height='60' rx='4'/%3E%3Crect x='310' y='280' width='230' height='60' rx='4'/%3E%3C/g%3E%3C/g%3E%3Cpath d='M40 360h520' stroke='%23bfb39a' stroke-width='6'/%3E%3C/svg%3E">
+        <figcaption>「晨光仓库」· 杭州 · 2024 年 11 月收录</figcaption>
+      </figure>
+      <figure>
+        <img alt="影像墙小图：牛皮纸袋上手写的分类编号" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23c9a978'/%3E%3Crect x='35' y='45' width='230' height='110' rx='6' fill='%23f4e7cd'/%3E%3Ctext x='60' y='105' font-family='Georgia,serif' font-size='34' fill='%238a6a34'%3EA-012</text%3E%3Crect x='60' y='122' width='110' height='8' rx='4' fill='%23c9b28a'/%3E%3C/svg%3E">
+        <figcaption>编号 A-012 的档案袋</figcaption>
+      </figure>
+      <figure>
+        <img alt="影像墙小图：一串挂起的钥匙与铜牌" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%232a3b36'/%3E%3Cg stroke='%23c9a978' stroke-width='4' fill='none'%3E%3Ccircle cx='150' cy='40' r='16'/%3E%3Cpath d='M150 56v70'/%3E%3C/g%3E%3Crect x='118' y='126' width='64' height='46' rx='6' fill='%23e8a33d'/%3E%3Ccircle cx='150' cy='142' r='7' fill='%232a3b36'/%3E%3C/svg%3E">
+        <figcaption>钥匙墙与铜牌</figcaption>
+      </figure>
+      <figure class="w2">
+        <img alt="影像墙宽图：窗边并排的三只收纳篮与洒落的光" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 200'%3E%3Crect width='600' height='200' fill='%23e6ecdf'/%3E%3Cg fill='%23f7f4ec'%3E%3Crect x='50' y='70' width='140' height='100' rx='10'/%3E%3Crect x='230' y='70' width='140' height='100' rx='10'/%3E%3Crect x='410' y='70' width='140' height='100' rx='10'/%3E%3C/g%3E%3Cg fill='%23c9a978'%3E%3Crect x='70' y='100' width='100' height='8' rx='4'/%3E%3Crect x='250' y='100' width='100' height='8' rx='4'/%3E%3Crect x='430' y='100' width='100' height='8' rx='4'/%3E%3C/g%3E%3Cpath d='M0 190h600' stroke='%23cdd8c8' stroke-width='6'/%3E%3C/svg%3E">
+        <figcaption>窗边的三只收纳篮 · 苏州</figcaption>
+      </figure>
+      <figure>
+        <img alt="影像墙小图：摊开的笔记本上贴着彩色便签" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23dfe4ea'/%3E%3Crect x='40' y='30' width='220' height='140' rx='6' fill='%23fffdf7'/%3E%3Cg fill='%23e8a33d'%3E%3Crect x='60' y='50' width='46' height='34' rx='3'/%3E%3C/g%3E%3Cg fill='%232f7d63'%3E%3Crect x='116' y='50' width='46' height='34' rx='3'/%3E%3C/g%3E%3Cg fill='%23c86a4a'%3E%3Crect x='172' y='50' width='46' height='34' rx='3'/%3E%3C/g%3E%3Cg fill='%23b7c0c9'%3E%3Crect x='60' y='100' width='130' height='8' rx='4'/%3E%3Crect x='60' y='120' width='100' height='8' rx='4'/%3E%3Crect x='60' y='140' width='150' height='8' rx='4'/%3E%3C/g%3E%3C/svg%3E">
+        <figcaption>便签与清单：待归档事项</figcaption>
+      </figure>
+      <figure>
+        <img alt="影像墙小图：旧木箱上的金属锁扣特写" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%237a5a3c'/%3E%3Crect x='30' y='30' width='240' height='140' rx='8' fill='%239a7449'/%3E%3Crect x='120' y='80' width='60' height='44' rx='6' fill='%23d9d3c4'/%3E%3Ccircle cx='150' cy='100' r='8' fill='%237a5a3c'/%3E%3Crect x='30' y='30' width='240' height='10' rx='5' fill='%23b78f5e'/%3E%3C/svg%3E">
+        <figcaption>木箱锁扣 · 旧物归档</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 随笔 + 评论 ===== -->
+<section class="block" id="stories" style="background:#f1efe8">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><small>STORIES / 随笔与回声</small>文字记录下的整理现场</h2>
+      <p>影像之外，我们也保留文字的位置。以下三篇来自创作者与用户的真实记录。</p>
+    </div>
+    <div class="essay-grid">
+      <article class="essay">
+        <h3>我把奶奶的针线盒复刻了一遍</h3>
+        <p>原盒已经散架，我照着旧照片量了尺寸，用桐木重新做了一版，连隔板的位置都一模一样。做完那天我拍了三分钟，什么都没说，只是把针一根一根放回去。这大概就是我一直想做的事：让东西被记得。</p>
+        <div class="sign"><span class="avatar" style="background:#c9a978;color:#3a2a08">木</span> 木作间 · 创作者</div>
+      </article>
+      <article class="essay">
+        <h3>清空 4000 条收藏夹之后</h3>
+        <p>我以为会心疼，结果只是累了。真正留下的只有一百多条，全都集中在我最近的三个目标上。现在我给收藏夹加了一个规则：超过三十天没打开的，自动进待审清单。这不是自律，是给未来的自己少一点负担。</p>
+        <div class="sign"><span class="avatar" style="background:#4d7f8f">十</span> 十七号抽屉 · 创作者</div>
+      </article>
+      <article class="essay">
+        <h3>一间十平米的仓库，我做了三次整理</h3>
+        <p>第一次按类别，第二次按季节，第三次按使用频率。前两次都失败了，因为我总在为「以后可能用得上」留位置。第三次我狠下心，只留了能在一个月内用到的。空间一下子就回来了，人也是。</p>
+        <div class="sign"><span class="avatar" style="background:#2f7d63">林</span> 林澈 · 创作者</div>
+      </article>
+    </div>
+
+    <div class="sec-head" style="margin-top:48px">
+      <h2><small>REVIEWS / 社区回声</small>来自用户的真实评价</h2>
+      <p>我们不做刷榜，以下评价来自长期的社区用户与合作伙伴，内容未做修饰。</p>
+    </div>
+    <div class="review-grid">
+      <div class="review">
+        <div class="top"><span class="avatar" style="background:#2f7d63">周</span><div><b>周叙</b><br><span>注册三年 · 整理爱好者</span></div></div>
+        <p>最打动我的是它不劝人扔东西。很多平台都在教断舍离，这里反而承认「舍不得」是合理的，然后教你怎么把它整理好。这个态度很珍贵。</p>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="review">
+        <div class="top"><span class="avatar" style="background:#c86a4a">简</span><div><b>简宁</b><br><span>注册一年 · 平面设计师</span></div></div>
+        <p>影像质量明显比一般社区高，构图和色彩都很讲究，看得出有审核。缺点是新内容更新不算快，但每条都能反复看。</p>
+        <div class="stars">★★★★☆</div>
+      </div>
+      <div class="review">
+        <div class="top"><span class="avatar" style="background:#4d7f8f">陈</span><div><b>陈可为</b><br><span>合作机构 · 家居品牌市场</span></div></div>
+        <p>我们和仓库合作过一期品牌故事，从选题到成片沟通很顺。他们坚持不夸大效果，这点在商业合作里很少见，也让我们更愿意长期合作。</p>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="review">
+        <div class="top"><span class="avatar" style="background:#c9a978;color:#3a2a08">阿</span><div><b>阿栗</b><br><span>注册半年 · 宝妈</span></div></div>
+        <p>跟着玄关那期改造了家里的鞋柜，花了两百多，效果比请人上门还好。视频里给了成本表，这点特别实在。</p>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="review">
+        <div class="top"><span class="avatar" style="background:#5a5a68">许</span><div><b>许一川</b><br><span>注册两年 · 学生</span></div></div>
+        <p>科普区的视频对我的毕业论文帮助很大，引用了收藏行为那期的框架，还标注了参考文献，很专业。</p>
+        <div class="stars">★★★★☆</div>
+      </div>
+      <div class="review">
+        <div class="top"><span class="avatar" style="background:#244037">顾</span><div><b>顾南舟</b><br><span>访谈主持 · 社区共建者</span></div></div>
+        <p>作为参与内容生产的人，我更清楚这背后的工作量。选题会经常一开就是三小时，为了一个标签怎么写可以争半天。值得信赖四个字不是喊出来的。</p>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 榜单 + 企业动态 ===== -->
+<section class="block" id="news">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><small>DATA &amp; NEWS / 榜单与动态</small>仓库数据与官方发布</h2>
+      <p>每周更新一次榜单，每月发布一次企业动态。数据由官方后台统计，接受创作者申诉。</p>
+    </div>
+    <div class="rank">
+      <div class="rank-col">
+        <h3><i></i>本周热度榜</h3>
+        <ul>
+          <li><span class="no">1</span>为什么我们舍不得删？<span class="up">▲3</span></li>
+          <li><span class="no">2</span>一柜子的十年<span class="up">▲1</span></li>
+          <li><span class="no">3</span>抽屉的第三层<span class="up">—</span></li>
+          <li><span class="no">4</span>给旧物拍一张档案照<span class="up">▲2</span></li>
+          <li><span class="no">5</span>玄关改造：动线倒推<span class="up">▼1</span></li>
+        </ul>
+      </div>
+      <div class="rank-col">
+        <h3><i></i>新人创作者榜</h3>
+        <ul>
+          <li><span class="no">1</span>纸箱研究所 <span class="up">+1280</span></li>
+          <li><span class="no">2</span>周日归档 <span class="up">+960</span></li>
+          <li><span class="no">3</span>空盒计划 <span class="up">+744</span></li>
+          <li><span class="no">4</span>旧物档案馆 <span class="up">+612</span></li>
+          <li><span class="no">5</span>三平米仓库 <span class="up">+508</span></li>
+        </ul>
+      </div>
+      <div class="rank-col">
+        <h3><i></i>口碑推荐榜</h3>
+        <ul>
+          <li><span class="no">1</span>标签的写法<span class="up">9.6</span></li>
+          <li><span class="no">2</span>凌晨的收纳师<span class="up">9.4</span></li>
+          <li><span class="no">3</span>冬储清单<span class="up">9.3</span></li>
+          <li><span class="no">4</span>票据与旧照片<span class="up">9.1</span></li>
+          <li><span class="no">5</span>摄制全记录<span class="up">9.0</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="log" style="margin-top:34px">
+      <h2>企业动态与官方发布</h2>
+      <p class="sub">松鼠症仓库每月的产品、内容与合作进展，全部公开可查。</p>
+      <div class="log-grid">
+        <div class="log-item">
+          <time>12.02</time>
+          <div><b>影像仓库 2.0 上线</b><p>支持批量归档、标签云检索与导出清单，创作者后台同步升级。</p></div>
+        </div>
+        <div class="log-item">
+          <time>11.24</time>
+          <div><b>《一柜子的十年》首映</b><p>年度旗舰纪录片在官网首发，同步释出导演访谈与幕后花絮。</p></div>
+        </div>
+        <div class="log-item">
+          <time>11.15</time>
+          <div><b>第三届整理挑战赛启动</b><p>面向所有用户开放报名，设置收纳、影像、文字三个赛道，投票通道同步开启。</p></div>
+        </div>
+        <div class="log-item">
+          <time>10.30</time>
+          <div><b>与六家家居品牌达成合作</b><p>合作内容将坚持真实呈现，不修饰效果，相关方案公开在合作页。</p></div>
+        </div>
+        <div class="log-item">
+          <time>10.08</time>
+          <div><b>创作者扶持计划第二期</b><p>新增拍摄设备借用与脚本辅导，首期共有 46 位创作者参与。</p></div>
+        </div>
+        <div class="log-item">
+          <time>09.20</time>
+          <div><b>社区公约修订</b><p>明确禁止夸大宣传与搬运内容，强化原创与正版标识，欢迎用户监督反馈。</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 合作 + 联系 ===== -->
+<section class="block" id="contact" style="background:#f1efe8">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><small>PARTNERS &amp; CONTACT</small>合作与投稿入口</h2>
+      <p>我们欢迎品牌、机构与创作者一起共建内容生态。请在下方留下需求，官方团队会在三个工作日内回复。</p>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-panel">
+        <h3>给我们写一封简短的信</h3>
+        <p>说明你的合作方向、期望时间与预算区间，信息越具体，回复越快。</p>
+        <div class="field-row">
+          <input type="text" placeholder="你的称呼或机构名称" aria-label="称呼">
+          <input type="text" placeholder="联系方式（邮箱 / 微信）" aria-label="联系方式">
+        </div>
+        <select aria-label="合作类型">
+          <option>品牌故事拍摄</option>
+          <option>专题企划共创</option>
+          <option>创作者投稿</option>
+          <option>内容授权与转载</option>
+        </select>
+        <textarea rows="4" placeholder="简单描述你的需求或作品内容…" aria-label="需求描述"></textarea>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <button class="btn btn-primary" id="sendBtn" type="button">提交需求</button>
+          <button class="btn btn-ghost" id="copyBtn" type="button">复制本站链接</button>
+        </div>
+      </div>
+      <div class="contact-side">
+        <div class="side-card">
+          <h4>投稿邮箱</h4>
+          <div class="k">SUBMIT</div><div class="v">submit@songshuvault.example</div>
+          <div class="k">工作时间</div><div class="v">周一至周五 10:00 - 19:00</div>
+          <p>所有投稿默认同意官方审核与改编建议，版权始终归创作者所有。</p>
+        </div>
+        <div class="side-card" style="background:#e8dcc6">
+          <h4>合作品牌墙</h4>
+          <div class="partners" style="margin-top:12px">
+            <span class="partner">木山家居</span>
+            <span class="partner">归盒</span>
+            <span class="partner">OFFGRID 影像</span>
+            <span class="partner">慢仓咖啡</span>
+            <span class="partner">一页纸工作室</span>
+            <span class="partner">城西仓储</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="block" id="faq">
+  <div class="wrap">
+    <div class="sec-head" style="justify-content:center;text-align:center;flex-direction:column;align-items:center">
+      <h2><small>FAQ / 帮助中心</small>常见问题</h2>
+      <p>关于投稿、版权、审核与合作的说明，若仍未解答，可通过上方联系表单提问。</p>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>内容适合用手机拍摄吗？画质要求是什么？</summary>
+        <p>适合。我们更看重叙事与信息密度，而不是器材。建议横屏拍摄、分辨率 1080p 以上、环境光充足，声音清楚即可。若画面抖动明显或收音有严重杂音，审核会建议重拍或补录。</p>
+      </details>
+      <details>
+        <summary>投稿后多久会有结果？</summary>
+        <p>常规审核周期为 5 到 7 个工作日。专题共创与纪录片类内容会延长至 10 个工作日。审核结果会通过投稿邮箱通知，未通过也会附上具体建议。</p>
+      </details>
+      <details>
+        <summary>作品的版权归谁？可以同时发布到其他平台吗？</summary>
+        <p>版权始终归创作者所有。我们获得的是官方渠道展示与推广授权，不要求独家。你可以同时发布到其他平台，但希望标注与松鼠症仓库的合作关系。</p>
+      </details>
+      <details>
+        <summary>官网内容是否都可以在站内直接查看？</summary>
+        <p>大部分原创内容在站内提供高清版本，部分合作片源按授权范围开放。所有可查看内容均经过正版确认，并在详情页标注来源与授权说明。</p>
+      </details>
+      <details>
+        <summary>品牌合作会干预选题吗？</summary>
+        <p>不会。合作方可以提出传播目标与必要的信息点，但选题方向与呈现方式由编辑部与创作者共同决定。我们坚持不夸大效果、不虚构场景，这也是口碑的来源。</p>
+      </details>
+      <details>
+        <summary>如何加入创作者扶持计划？</summary>
+        <p>在站内发布三条以上原创内容后，可在个人后台提交申请。通过评审后可以借用拍摄设备、获得脚本辅导与流量支持。每年分两期，具体时间见企业动态。</p>
+      </details>
+      <details>
+        <summary>发现搬运或虚假内容怎么办？</summary>
+        <p>在对应内容页点击举报，或通过联系表单说明具体情况并附上链接。核实后我们会在 48 小时内处理，处理结果会同步告知举报人。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo" style="margin-bottom:6px">
+          <span class="logo-mark">松</span>
+          <span class="logo-txt"><strong>松鼠症仓库</strong><small>SONGSHU VAULT</small></span>
+        </div>
+        <p>松鼠症仓库官方网站。我们是一家持续运营的视频品牌企业，深耕收藏整理与影像记录这一垂直领域，致力于为创作者与企业搭建高品质内容生态。</p>
+      </div>
+      <div class="foot-col">
+        <h5>内容</h5>
+        <a href="#focus">焦点内容</a>
+        <a href="#videos">视频仓库</a>
+        <a href="#topics">专题企划</a>
+        <a href="#wall">影像墙</a>
+      </div>
+      <div class="foot-col">
+        <h5>社区</h5>
+        <a href="#creators">创作者矩阵</a>
+        <a href="#stories">随笔与回声</a>
+        <a href="#news">榜单与动态</a>
+        <a href="#faq">帮助中心</a>
+      </div>
+      <div class="foot-col">
+        <h5>关于</h5>
+        <a href="#top">品牌故事</a>
+        <a href="#contact">合作与投稿</a>
+        <a href="#news">企业动态</a>
+        <a href="#contact">联系方式</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2019–2025 松鼠症仓库 版权所有 · 持续运营中</span>
+      <span>官方网站 · 原创内容声明 · 备案号占位：待补充</span>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" type="button" aria-label="回到顶部">↑</button>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<!-- 作者弹窗 -->
+<div class="modal" id="authorModal">
+  <div class="modal-card">
+    <button class="close-x" data-close type="button" aria-label="关闭">×</button>
+    <h3 id="mTitle">创作者档案</h3>
+    <p class="m-sub" id="mField">擅长领域</p>
+    <p id="mBio" style="font-size:13.6px;color:#3b4550;margin-bottom:16px"></p>
+    <div style="display:flex;gap:26px;font-size:13.5px;color:#3b4550;border-top:1px dashed #e2e6ea;padding-top:14px">
+      <span>作品 <b id="mWorks">0</b></span>
+      <span>关注 <b id="mFans">0</b></span>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" data-close type="button">关闭</button>
+      <button class="btn btn-primary" id="followBtn" type="button">关注 TA</button>
+    </div>
+  </div>
+</div>
+
+<!-- 投稿弹窗 -->
+<div class="modal" id="uploadModal">
+  <div class="modal-card">
+    <button class="close-x" data-close type="button" aria-label="关闭">×</button>
+    <h3>投稿到松鼠症仓库</h3>
+    <p class="m-sub">请先填写基本信息，编辑会在 5 个工作日内与你联系。</p>
+    <input type="text" placeholder="作品标题" aria-label="作品标题">
+    <input type="text" placeholder="创作者昵称" aria-label="创作者昵称">
+    <select aria-label="作品分类">
+      <option>收纳整理</option>
+      <option>影像记录</option>
+      <option>人物访谈</option>
+      <option>知识科普</option>
+      <option>创作幕后</option>
+    </select>
+    <textarea rows="3" placeholder="一句话说明你的作品内容与亮点…" aria-label="作品说明"></textarea>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" data-close type="button">取消</button>
+      <button class="btn btn-primary" id="uploadSubmit" type="button">提交投稿</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- toast ---------- */
+  var toastEl = document.getElementById('toast');
+  var toastTimer = null;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('on'); }, 2200);
+  }
+
+  /* ---------- 移动端导航 ---------- */
+  var burger = document.getElementById('burger');
+  var mainNav = document.getElementById('mainNav');
+  burger.addEventListener('click', function(){
+    var open = mainNav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mainNav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      mainNav.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  /* ---------- 搜索 ---------- */
+  var searchInput = document.getElementById('searchInput');
+  var searchBtn = document.getElementById('searchBtn');
+  var hintPop = document.getElementById('hintPop');
+  var hotWords = ['仓储式收纳','标签规范','数字囤积','旧物档案','玄关改造','静物摄影','创作者幕后'];
+  function renderHints(kw){
+    var list = hotWords.filter(function(w){ return !kw || w.indexOf(kw) > -1; });
+    if(!list.length) list = hotWords.slice(0,4);
+    hintPop.innerHTML = list.map(function(w){
+      return '<li data-w="'+w+'">🔍 '+w+'</li>';
+    }).join('');
+    hintPop.classList.add('on');
+  }
+  searchInput.addEventListener('focus', function(){ renderHints(searchInput.value.trim()); });
+  searchInput.addEventListener('input', function(){ renderHints(searchInput.value.trim()); });
+  hintPop.addEventListener('click', function(e){
+    var li = e.target.closest('li');
+    if(!li) return;
+    searchInput.value = li.getAttribute('data-w');
+    hintPop.classList.remove('on');
+    doSearch();
+  });
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.search-hint')) hintPop.classList.remove('on');
+  });
+  function doSearch(){
+    var kw = searchInput.value.trim();
+    if(!kw){ toast('请输入要搜索的关键词'); return; }
+    hintPop.classList.remove('on');
+    var found = 0;
+    document.querySelectorAll('.vcard, .topic, .essay').forEach(function(el){
+      var txt = el.textContent;
+      if(txt.indexOf(kw) > -1){ found++; }
+    });
+    if(found > 0){
+      toast('在站内找到 ' + found + ' 条与「' + kw + '」相关的内容');
+      document.getElementById('videos').scrollIntoView({behavior:'smooth'});
+    }else{
+      toast('暂未找到「' + kw + '」，可尝试收纳、影像、访谈等关键词');
+    }
+  }
+  searchBtn.addEventListener('click', doSearch);
+  searchInput.addEventListener('keydown', function(e){ if(e.key === 'Enter') doSearch(); });
+
+  /* ---------- 分类筛选 ---------- */
+  var filterBar = document.getElementById('filterBar');
+  filterBar.addEventListener('click', function(e){
+    var btn = e.target.closest('.chip');
+    if(!btn) return;
+    filterBar.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('active'); });
+    btn.classList.add('active');
+    var cat = btn.getAttribute('data-cat');
+    var shown = 0;
+    document.querySelectorAll('#videoGrid .vcard').forEach(function(card){
+      var ok = (cat === 'all') || (card.getAttribute('data-cat') === cat);
+      card.classList.toggle('hidden-by-filter', !ok);
+      if(ok) shown++;
+    });
+    toast('已筛选：' + btn.textContent.trim() + ' · ' + shown + ' 条');
+  });
+
+  /* ---------- 点赞 / 收藏 ---------- */
+  document.querySelectorAll('.act.like').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      var numEl = btn.querySelector('span');
+      var n = parseInt(numEl.textContent, 10) || 0;
+      if(btn.classList.contains('liked')){
+        btn.classList.remove('liked');
+        numEl.textContent = Math.max(0, n - 1);
+        toast('已取消点赞');
+      }else{
+        btn.classList.add('liked');
+        numEl.textContent = n + 1;
+        toast('已点赞，感谢你的支持');
+      }
+    });
+  });
+  document.querySelectorAll('.act.save').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      if(btn.classList.contains('saved')){
+        btn.classList.remove('saved');
+        btn.textContent = '☆';
+        toast('已移出我的整理清单');
+      }else{
+        btn.classList.add('saved');
+        btn.textContent = '★';
+        toast('已收藏到我的整理清单');
+      }
+    });
+  });
+
+  /* ---------- 创作者弹窗 ---------- */
+  var authorModal = document.getElementById('authorModal');
+  var currentCreator = null;
+  document.querySelectorAll('.creator').forEach(function(card){
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function(){
+      currentCreator = card;
+      document.getElementById('mTitle').textContent = card.getAttribute('data-name');
+      document.getElementById('mField').textContent = card.getAttribute('data-field');
+      document.getElementById('mBio').textContent = card.getAttribute('data-bio');
+      document.getElementById('mWorks').textContent = card.getAttribute('data-works');
+      document.getElementById('mFans').textContent = card.getAttribute('data-fans');
+      var fb = document.getElementById('followBtn');
+      fb.textContent = '关注 TA';
+      fb.classList.remove('btn-amber');
+      fb.classList.add('btn-primary');
+      authorModal.classList.add('on');
+    });
+  });
+  document.getElementById('followBtn').addEventListener('click', function(){
+    var fb = this;
+    if(fb.textContent === '关注 TA'){
+      fb.textContent = '已关注';
+      fb.classList.remove('btn-primary');
+      fb.classList.add('btn-amber');
+      toast('已关注 ' + (currentCreator ? currentCreator.getAttribute('data-name') : '创作者'));
+    }else{
+      fb.textContent = '关注 TA';
+      fb.classList.add('btn-primary');
+      fb.classList.remove('btn-amber');
+      toast('已取消关注');
+    }
+  });
+
+  /* ---------- 投稿弹窗 ---------- */
+  var uploadModal = document.getElementById('uploadModal');
+  document.getElementById('uploadBtn').addEventListener('click', function(){
+    uploadModal.classList.add('on');
+  });
+  document.getElementById('uploadSubmit').addEventListener('click', function(){
+    uploadModal.classList.remove('on');
+    toast('投稿已提交，编辑将在 5 个工作日内联系你');
+  });
+
+  /* ---------- 关闭弹窗 ---------- */
+  document.querySelectorAll('[data-close]').forEach(function(b){
+    b.addEventListener('click', function(){
+      b.closest('.modal').classList.remove('on');
+    });
+  });
+  document.querySelectorAll('.modal').forEach(function(m){
+    m.addEventListener('click', function(e){
+      if(e.target === m) m.classList.remove('on');
+    });
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      document.querySelectorAll('.modal.on').forEach(function(m){ m.classList.remove('on'); });
+    }
+  });
+
+  /* ---------- 复制链接 ---------- */
+  document.getElementById('copyBtn').addEventListener('click', function(){
+    var text = '松鼠症仓库 · 收藏整理与影像记录社区';
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){
+        toast('站点信息已复制，欢迎分享给同好');
+      }).catch(function(){
+        toast('复制失败，请手动分享');
+      });
+    }else{
+      toast('当前环境不支持自动复制，请手动分享');
+    }
+  });
+
+  /* ---------- 提交需求 ---------- */
+  document.getElementById('sendBtn').addEventListener('click', function(){
+    toast('需求已记录，官方团队将在三个工作日内回复');
+  });
+
+  /* ---------- 回到顶部 ---------- */
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    toTop.classList.toggle('on', window.scrollY > 600);
+  }, {passive:true});
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* ---------- 数字滚动 ---------- */
+  var counted = false;
+  function runCount(){
+    if(counted) return;
+    counted = true;
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var start = null, dur = 1200;
+      function step(ts){
+        if(!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var val = Math.floor(target * (1 - Math.pow(1 - p, 3)));
+        el.textContent = val.toLocaleString('zh-CN');
+        if(p < 1) requestAnimationFrame(step);
+        else el.textContent = target.toLocaleString('zh-CN');
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  var statsEl = document.querySelector('.stats');
+  if('IntersectionObserver' in window && statsEl){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ runCount(); io.disconnect(); }
+      });
+    }, {threshold:.4});
+    io.observe(statsEl);
+  }else{
+    runCount();
+  }
+
+})();
+</script>
+</body>
+      </html>
